@@ -1,6 +1,6 @@
 ### Installation
 
-1. ouvrez le terminal
+1. ouvrir le terminal
 
 2. installer les dépendances
 	composer install
@@ -34,7 +34,7 @@
 - migrations   (composer require migrations)
 - make         (composer require --dev make)
 
-- Bundle league/csv (permet la manipulation des fichier CSV : lecture, écriture et filtrage): composer require league/csv
+- Bundle league/csv (permet la manipulation des fichiers CSV : lecture, écriture et filtrage): composer require league/csv
 
 
 ### Configuration database
@@ -48,40 +48,37 @@
 2. création de la base de données avec la commande:
 		php bin/console doctrine:database:create
 
-3. création de l'entity member (id, nom, prenom, telephone)
-	php bin/console make:entity member
-
-4. versionner les migrations:
+3. versionner les migrations:
 		php bin/console make:migration
 		
-5. exécution des migrations:
+4. exécuter les migrations:
 	php bin/console doctrine:migrations:migrate
 	
-6. pour importer les données du fichier CSV dans la base de données, lancez la commande:
+5. pour importer les données du fichier CSV dans la base de données, lancer la commande:
 		php bin/console csv:import  
 		
-7. lancez le server local de symfony:
+6. lancer le server local de symfony:
 		php -S 127.0.0.1:8000 -t public  
 		
 ### Usage de l'API
 ---
 
 
-8. L'api est disponible sur l'url :
+8. L'api est disponible via l'url :
 		http://127.0.0.1:8000/api
 
-9. la liste des membres adhérants est disponible sur l'url:
+9. la liste des membres adhérants est disponible via l'url:
 		avec l'outil Postman : - url : http://127.0.0.1:8000/api/members
 							   - methode : GET
 							   
-9. la liste des membres adhérants classée par ordre croissant du nom et prenom		   
+9. la liste des membres adhérants classées par ordre croissant du nom et prénom		   
 							  
 		avec l'outil Postman : - methode : GET
 							   - url pour nom :     http://127.0.0.1:8000/api/members?order[nom]=ASC
 							   - url pour prenom :  http://127.0.0.1:8000/api/members?order[prenom]=ASC
 							   
 							   
-10. chaque membre adhérant est disponible sur l'url: http://127.0.0.1:8000/api/members/id
+10. chaque membre adhérant est disponible via l'url: http://127.0.0.1:8000/api/members/id
 		avec l'outil Postman : - url : http://127.0.0.1:8000/api/members/4
 							   - methode : GET
 	
