@@ -72,11 +72,22 @@ class Member
         return $this;
     }
 
+    /**
+     *  function get prenom
+     *
+     * @return string|null
+     */
     public function getPrenom(): ?string
     {
         return $this->prenom;
     }
 
+    /**
+     *  function set prenom
+     *
+     * @param string $prenom
+     * @return self
+     */
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
@@ -84,11 +95,22 @@ class Member
         return $this;
     }
 
+    /**
+     *  function get telephone
+     *
+     * @return string|null
+     */
     public function getTelephone(): ?string
     {
         return $this->telephone;
     }
 
+    /**
+     *  function set telephone
+     *
+     * @param string $telephone
+     * @return self
+     */
     public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;

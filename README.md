@@ -1,4 +1,12 @@
 ### Installation
+
+1. ouvrez le terminal
+
+2. installer les dépendances
+	composer install
+
+## avec git
+
 1.importer le projet
      git clone https://github.com/Olly-dev/test_api_users.git
 	 
