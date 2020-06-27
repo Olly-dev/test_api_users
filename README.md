@@ -1,6 +1,13 @@
-# test Technique
-### Why ?
----
+### Installation
+1.importer le projet
+     git clone https://github.com/Olly-dev/test_api_users.git
+	 
+2. allez dans le fichier
+		cd test_api_users/
+
+3. installer les dépendances
+	composer install
+
 
 ### Requirements
 ---
@@ -21,8 +28,8 @@
 
 - Bundle league/csv (permet la manipulation des fichier CSV : lecture, écriture et filtrage): composer require league/csv
 
-### Usage
----
+
+### Configuration database
 
 1. modifier les paramètres de la base de données à la ligne 32 du fichier .env 
 - utilisateur:                  db_user
@@ -47,6 +54,10 @@
 		
 7. lancez le server local de symfony:
 		php -S 127.0.0.1:8000 -t public  
+		
+### Usage de l'API
+---
+
 
 8. L'api est disponible sur l'url :
 		http://127.0.0.1:8000/api
@@ -66,84 +77,4 @@
 		avec l'outil Postman : - url : http://127.0.0.1:8000/api/members/4
 							   - methode : GET
 	
-
-
-### Installation
----
-
-```
-git clone 
-cd API
-./install.sh
-```
-
-### Configuration database
----
-
-```
-# Créer la base de donnée si cette base n'hesite pas encore 
-# -f signifie --force pour force l'excecution 
-- bin/console doctrine:database:create -f
-
-# met a jour les entites en base de donnée
-- bin/console doctrine:schema:update -f
-
-# Lance les fixtures pour avoir des données de test en base
-- bin/console doctrine:fixtures:load
-```
-
-=======
-### Configuration jwt
----
-
-- Jwt Generating the Public and Private Key
-```
-composer require lexik/jwt-authentication-bundle
-```
-- Generating the Public and Private Key
-
-```
-$ mkdir config/jwt
-$ openssl genrsa -out config/jwt/private.pem -aes256 4096
-$ openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
-Password jwt: 543565376YYHD39833
-```
-
-- Configuring the Bundle
-
-```
-lexik_jwt_authentication:
-    private_key_path: %kernel.root_dir%/../var/jwt/private.pem
-    public_key_path:  %kernel.root_dir%/../var/jwt/public.pem
-    pass_phrase:      %jwt_key_pass_phrase%
-    token_ttl:        3600
-```
-
-- Test jwt console
-```
-$ bin/console debug:container jwt
-```
-
-- Get a JWT Token:
-```
-$ curl -X POST -H "Content-Type: application/json" http://localhost:8000/login_check -d '{"username":"johndoe","password":"test"}'
--> { "token": "[TOKEN]" }
-```
-
-- Example of accessing secured routes:
-```
-$ curl -H "Authorization: Bearer [TOKEN]" http://localhost:8000/api
--> Logged in as johndoe
-```
-
-### Configuration
----
-
-### Deployment
----
-
-### Documentation
----
-
-### Authors / Maintainers
----
+### end
